@@ -1,5 +1,7 @@
 # Spreadsheet-CakePHP-Plugin
 
+CakePHP 1.x & 2.x
+
 Create Spreadsheets supports xls, csv, Export/Import enabled
 
 * Import spreadsheets such as Excel, CSV sheets into Editor to edit each row online.
