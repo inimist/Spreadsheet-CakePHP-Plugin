@@ -410,4 +410,33 @@ class Log extends SpreadsheetAppModel {
 		}
 		return $column_type;
 	}
+
+/**
+ * stats - to find current stats
+ * @param string $date
+ * @return array
+ */
+ public function stats($date=null){
+	if(!$date) $date = date('Y-m-d');
+	$date = date('Y-m-d', strtotime($date));
+	$result = array();
+	 $result = array('total'=> $this->getTotalLogCount($date),
+											//'overdue' =>$this->getOverdueLogEntryCount($date),
+											//'completed' => $this->getCompletedLogEntryCount($date),
+											'deleted' => $this->getDeletedLogCount($date)
+											); 
+	return $result;
+ }
+
+ function getTotalLogCount($date){
+		if(!$date) $date = date('Y-m-d');
+		return $this->find('count', array('conditions'=>array('Log.created <='=>$date), 'recursive'=> -1));
+ }
+
+ function getDeletedLogCount($date){
+		if(!$date) $date = date('Y-m-d');
+		return $this->find('count', array('conditions'=>array('Log.deleted'=>1, 'Log.deleted_date <='=>$date), 'recursive'=> -1));
+ }
+
+
 }
