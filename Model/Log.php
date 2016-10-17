@@ -411,6 +411,7 @@ class Log extends SpreadsheetAppModel {
 		return $column_type;
 	}
 
+
 /**
  * stats - to find current stats
  * @param string $date
