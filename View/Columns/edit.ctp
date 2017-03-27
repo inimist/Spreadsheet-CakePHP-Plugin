@@ -45,7 +45,7 @@ $listPrivacy = array('me'=>'Only me', 'department'=>'My Department');
 
 						<div id="existingList">
 									
-									<?php  echo $this->Form->input('log_columns_custom_list_id', array('type'=>'select', 'options'=>$custom_lists, 'label'=>__('Choose From Given Lists'), 'empty' => 'Please Select'));  ?>
+									<?php  echo $this->Form->input('log_columns_custom_list_id', array('type'=>'select', 'options'=>$custom_lists, 'label'=>__('Choose From Given Lists'), 'empty' => '-- Select --'));  ?>
 
 									<?php 									
 									echo $this->Html->link(__('Edit salected List'), array('controller'=>'CustomLists', 'action'=>'edit', $this->request->data['LogColumn']['log_columns_custom_list_id']), array("data-toggle"=>"modal", 'id'=>'link-edit-cl', "data-target"=>"#editCustomList", 'onclick'=>'return false')); 

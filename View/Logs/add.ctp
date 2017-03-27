@@ -29,7 +29,7 @@
 
     echo '</div>';
 
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('user_id', array( 'empty'=>'-- Select --'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
