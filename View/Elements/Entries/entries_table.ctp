@@ -240,7 +240,10 @@ jQuery(function($) {
 	 //thead.style.webkitTransform = translate;
 	 //thead.style.msTransform = translate;
 		});
-	
+
+	$('#border_option').val('All Borders');
+	$('.log-entries-table').find('td').css('border', '1px solid');
+
 	$('#border_option').on('change', function(){
 		var borderOpt = $(this).val();
 		switch(borderOpt){
