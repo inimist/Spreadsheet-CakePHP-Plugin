@@ -49,6 +49,10 @@ resizable columns
     font-size: 100%;
 }
 
+.default-column{
+background: #42B4E6 !important;
+}
+
 /* handle for FF */
 @-moz-document url-prefix() {
     .resizeHelper,.ui-resizable-e {
@@ -72,6 +76,8 @@ resizable columns
 		//pr($log);
     $columns_skipped_table = array();
 
+		$defaultColumns = array('attachment', 'set_reminder', 'user_id', 'reminder_date', 'status_id');
+
     if(count($log['LogColumn'])>0): ?>
 		<?php 
 		$border_option = array('No Border'=>'No Border', 'All Borders'=>'All Borders');
@@ -85,9 +91,12 @@ resizable columns
                     <div class="resizeHelper ui-resizable-handle ui-resizable-e">&nbsp;</div></th>
       <?php
         foreach($log['LogColumn'] as $column)  {
-          if(!$column['skip_table'])
-          echo '<th class="ui-resizable fix-on-top" style="width:100px"><span class="columnLabel">' . $column['column_name'] .'</span>
+					
+          if(!$column['skip_table']){
+						$class = in_array($column['id'], $defaultColumns) ? ' default-column': '';
+          echo '<th class="ui-resizable fix-on-top '.$class.'" style="width:100px"><span class="columnLabel">' . $column['column_name'] .'</span>
                     <div class="resizeHelper ui-resizable-handle ui-resizable-e">&nbsp;</div></th>';
+					}
           else
           $columns_skipped_table[] = $column['column_name'];
         }
