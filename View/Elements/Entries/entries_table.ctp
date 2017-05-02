@@ -3,6 +3,18 @@ table {
     table-layout: fixed;
     width: 0; /* otherwise Chrome will not increase table size */
 }
+
+.log-entries-table{
+   border-collapse: inherit;
+}
+.log-entries-table>thead>tr>th, .log-entries-table>tbody>tr>td{
+	border-left:none !important;
+	border-top:none !important;
+}
+.log-entries-table>thead>tr>th:first, .log-entries-table>tbody>tr>td:first{
+	border-left:1px !important;
+}
+
 /*
 thead {
     -ms-transform: translate(0px,0px); 
