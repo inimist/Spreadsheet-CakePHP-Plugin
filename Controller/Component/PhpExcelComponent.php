@@ -263,7 +263,7 @@ class PhpExcelComponent extends Component {
     }
 
 	/**
-     * Write array of data to after given position
+     * Write array of data after given position
      *
      * @param array $data
      * @return $this for method chaining
