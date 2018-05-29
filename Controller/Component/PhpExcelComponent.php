@@ -168,7 +168,7 @@ class PhpExcelComponent extends Component {
      */
     public function setRow($row) {
         $this->_row = (int)$row;
-
+		
         return $this;
     }
 
@@ -253,7 +253,24 @@ class PhpExcelComponent extends Component {
      */
     public function addTableRow($data) {
         $offset = $this->_tableParams['offset'];
+        foreach ($data as $d)
+            $this->_xls->getActiveSheet()->setCellValueByColumnAndRow($offset++, $this->_row, $d);
 
+        $this->_row++;
+        $this->_tableParams['row_count']++;
+
+        return $this;
+    }
+
+	/**
+     * Write array of data to after given position
+     *
+     * @param array $data
+     * @return $this for method chaining
+     */
+    public function appendTableRow($data,$row_position=1) {
+        $offset = $this->_tableParams['offset'];
+		$this->_row=$row_position;
         foreach ($data as $d)
             $this->_xls->getActiveSheet()->setCellValueByColumnAndRow($offset++, $this->_row, $d);
 

@@ -232,9 +232,9 @@ class PHPExcel_Writer_Excel2007 extends PHPExcel_Writer_Abstract implements PHPE
 			$zipOverWrite = $ro->getConstant('OVERWRITE');
 			$zipCreate = $ro->getConstant('CREATE');
 
-			if (file_exists($pFilename)) {
+			/*if (file_exists($pFilename)) {
 				unlink($pFilename);
-			}
+			}*/
 			// Try opening the ZIP file
 			if ($objZip->open($pFilename, $zipOverWrite) !== true) {
 				if ($objZip->open($pFilename, $zipCreate) !== true) {
